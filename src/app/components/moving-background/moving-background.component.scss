@@ -5,7 +5,7 @@
 }
 
 .moving-bg-wrapper {
-  background-color: red;
+  background-color: black;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -19,11 +19,19 @@
   z-index: 100;
 }
 
-.moving-img {
+img {
   position: absolute;
+  &.logo {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    z-index: 3;
+  }
   &.bg {
     width: 100%;
     height: 100%;
+    scale: 105%;
   }
   &.ahri {
     height: 70vh;
@@ -35,9 +43,9 @@
     height: 90vh;
     bottom: 50px;
     left: 50%;
-    transform: translateX(-60%);
     animation: float 6s ease-in-out infinite;
     filter: brightness(85%);
+    transform: translateX(-60%);
   }
   &.ryze {
     height: 70vh;
@@ -52,14 +60,27 @@
 .layer3 { z-index: 0 }
 
 @media screen and (max-width: 800px) {
-  .moving-img {
+  img {
     &.bg {
-      width: unset;
-      height: unset;
+      width: auto;
+      height: auto;
       &.layer1 { display: none; }
-      &.layer2 { transform: translate(-50%, 50%); }
+      //&.layer2 { transform: translate(-50%, 50%); }
     }
     &.ahri { visibility: hidden; }
     &.ryze { visibility: hidden; }
+  }
+}
+
+@media screen and (max-width: 1500px), (max-height: 800px) {
+  img {
+    &.bg {
+      &.layer2 {
+        width: auto;
+        height: auto;
+        top: 30%;
+        left: -20%;
+      }
+    }
   }
 }
