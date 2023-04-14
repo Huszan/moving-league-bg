@@ -1,3 +1,9 @@
+@keyframes float {
+  0% { bottom: 50px }
+  50% { bottom: 70px }
+  100% { bottom: 50px }
+}
+
 .moving-bg-wrapper {
   background-color: black;
   position: relative;
@@ -13,28 +19,35 @@
   z-index: 100;
 }
 
-.moving-img {
+img {
   position: absolute;
+  &.logo {
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    z-index: 3;
+  }
   &.bg {
     width: 100%;
     height: 100%;
+    scale: 105%;
   }
   &.ahri {
-    z-index: 1;
     height: 70vh;
     bottom: 0;
     left: 0;
     transform: translateX(-20%) rotateY(180deg);
   }
   &.kayle {
-    z-index: 1;
     height: 90vh;
-    bottom: 100px;
+    bottom: 50px;
     left: 50%;
+    animation: float 6s ease-in-out infinite;
+    filter: brightness(85%);
     transform: translateX(-60%);
   }
   &.ryze {
-    z-index: 1;
     height: 70vh;
     bottom: 0;
     right: 0;
@@ -42,13 +55,32 @@
   }
 }
 
+.layer1 { z-index: 2 }
+.layer2 { z-index: 1 }
+.layer3 { z-index: 0 }
+
 @media screen and (max-width: 800px) {
-  .moving-img {
-    &.ahri {
-      visibility: hidden;
+  img {
+    &.bg {
+      width: auto;
+      height: auto;
+      &.layer1 { display: none; }
+      //&.layer2 { transform: translate(-50%, 50%); }
     }
-    &.ryze {
-      visibility: hidden;
+    &.ahri { visibility: hidden; }
+    &.ryze { visibility: hidden; }
+  }
+}
+
+@media screen and (max-width: 1500px), (max-height: 800px) {
+  img {
+    &.bg {
+      &.layer2 {
+        width: auto;
+        height: auto;
+        top: 30%;
+        left: -20%;
+      }
     }
   }
 }
