@@ -1,0 +1,26 @@
+.music-player-wrapper {
+  display: flex;
+  padding: 5px;
+  gap: 5px;
+
+  .progress-bar-wrapper {
+    border-radius: 10px;
+    border: 1px solid rgb(133, 133, 133);
+    background-color: rgba(133, 133, 133, 0.2);
+    overflow: hidden;
+    width: 300px;
+    .progress-bar {
+      z-index: 1;
+      height: 100%;
+      background-color: limegreen;
+      opacity: 90%;
+    }
+  }
+
+  button {
+    opacity: 80%;
+    &:hover {
+      opacity: 100%;
+    }
+  }
+}
