@@ -20,21 +20,18 @@
     height: 100%;
   }
   &.ahri {
-    z-index: 1;
     height: 70vh;
     bottom: 0;
     left: 0;
     transform: translateX(-20%) rotateY(180deg);
   }
   &.kayle {
-    z-index: 1;
     height: 90vh;
-    bottom: 100px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-60%);
   }
   &.ryze {
-    z-index: 1;
     height: 70vh;
     bottom: 0;
     right: 0;
@@ -42,13 +39,19 @@
   }
 }
 
+.layer1 { z-index: 2 }
+.layer2 { z-index: 1 }
+.layer3 { z-index: 0 }
+
 @media screen and (max-width: 800px) {
   .moving-img {
-    &.ahri {
-      visibility: hidden;
+    &.bg {
+      width: unset;
+      height: unset;
+      &.layer1 { display: none; }
+      &.layer2 { transform: translate(-50%, 50%); }
     }
-    &.ryze {
-      visibility: hidden;
-    }
+    &.ahri { visibility: hidden; }
+    &.ryze { visibility: hidden; }
   }
 }
