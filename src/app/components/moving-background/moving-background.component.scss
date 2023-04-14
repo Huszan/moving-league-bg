@@ -1,3 +1,9 @@
+@keyframes float {
+  0% { bottom: 50px }
+  50% { bottom: 70px }
+  100% { bottom: 50px }
+}
+
 .moving-bg-wrapper {
   background-color: red;
   position: relative;
@@ -27,9 +33,11 @@
   }
   &.kayle {
     height: 90vh;
-    bottom: 0;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-60%);
+    animation: float 6s ease-in-out infinite;
+    filter: brightness(85%);
   }
   &.ryze {
     height: 70vh;
