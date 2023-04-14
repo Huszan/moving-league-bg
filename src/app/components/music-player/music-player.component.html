@@ -1,0 +1,14 @@
+<audio loop #audioEl>
+  <source src="../../../assets/music/music-splash-ornn.mp3" type="audio/mp3">
+</audio>
+<div class="music-player-wrapper">
+  <button *ngIf="audioEl.paused" class="play-button" (click)="audioEl.play()" type="button">
+    <img src="assets/icons/play_arrow.svg">
+  </button>
+  <button *ngIf="!audioEl.paused" class="pause-button" (click)="audioEl.pause()" type="button">
+    <img src="assets/icons/pause.svg">
+  </button>
+  <div class="progress-bar-wrapper">
+    <div class="progress-bar" style="width:{{ progress * 100 }}%"></div>
+  </div>
+</div>
