@@ -3,7 +3,7 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef, OnDestroy,
+  ElementRef, Input, OnDestroy,
   ViewChild
 } from '@angular/core';
 
@@ -14,12 +14,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MusicPlayerComponent implements AfterViewInit, OnDestroy {
+  @Input() isAutoplay = false;
+
   @ViewChild('audioEl') audioPlayerRef: ElementRef | undefined;
 
   private _loadingIntervalRef: any;
 
   ngAfterViewInit() {
-    this.audioPlayerRef!.nativeElement.play();
     this._setLoadingInterval(1000);
   }
 

@@ -1,5 +1,5 @@
-<audio loop #audioEl>
-  <source src="../../../assets/music/music-splash-ornn.mp3" type="audio/mp3">
+<audio loop muted [autoplay]="isAutoplay" #audioEl>
+  <source src="assets/music/music-splash-ornn.mp3" type="audio/mp3">
 </audio>
 <div class="music-player-wrapper">
   <button *ngIf="audioEl.paused" class="play-button" (click)="audioEl.play()" type="button">
