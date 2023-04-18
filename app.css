@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*Animated background*/
+@keyframes float {
+  0% { transform: translateY(50px) }
+  50% { transform: translateY(70px) }
+  100% { transform: translateY(50px) }
+}
+
+.moving-bg-wrapper {
+  background-color: black;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.music-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+img {
+  position: absolute;
+}
+
+.logo {
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  z-index: 3;
+}
+
+.bg {
+   width: 100%;
+   height: 100%;
+   scale: 105%;
+ }
+.ahri {
+   height: 70vh;
+   bottom: 0;
+   left: 0;
+   transform: translateX(-20%) rotateY(180deg);
+ }
+.kayle {
+   height: 90vh;
+   filter: brightness(85%);
+ }
+.kayle-wrapper {
+    position: absolute;
+    height: 90vh;
+    transform: translateX(60%);
+    left: 50%;
+    bottom: 50px;
+    animation: float 6s ease-in-out infinite;
+}
+.ryze {
+   height: 70vh;
+   bottom: 0;
+   right: 0;
+   transform: translateX(20%);
+ }
+
+.layer1 { z-index: 2 }
+.layer2 { z-index: 1 }
+.layer3 { z-index: 0 }
+
+@media screen and (max-width: 800px) {
+  .bg {
+    width: auto;
+    height: auto;
+  }
+  .ahri { visibility: hidden; }
+  .ryze { visibility: hidden; }
+  .layer1 { visibility: hidden; }
+}
+
+@media screen and (max-width: 1500px), (max-height: 800px) {
+  .bg.layer2 {
+    width: auto;
+    height: auto;
+    top: 30%;
+    left: -20%;
+  }
+}
+
+/*Audio player*/
+.music-player-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 5px;
+}
+.music-player-wrapper .progress-bar-wrapper {
+    background-color: rgba(133, 133, 133, 0.5);
+    overflow: hidden;
+    width: 150px;
+    height: 4px;
+    border-radius: 10px;
+}
+.music-player-wrapper .progress-bar-wrapper .progress-bar {
+    z-index: 1;
+    height: 100%;
+    background-color: rgba(56, 255, 0, 0.9);
+}
+.music-player-wrapper button {
+    all: unset;
+}
+.music-player-wrapper button {
+    opacity: 80%;
+    height: 24px;
+    width: 24px;
+}
+.music-player-wrapper button:hover {
+    opacity: 100%;
+}
