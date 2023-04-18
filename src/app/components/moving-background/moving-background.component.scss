@@ -25,7 +25,8 @@ img {
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     z-index: 3;
   }
   &.bg {
@@ -68,12 +69,6 @@ img {
     }
     &.ahri { visibility: hidden; }
     &.ryze { visibility: hidden; }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  img {
-    &.logo { width: 100%; }
   }
 }
 
