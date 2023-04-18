@@ -65,10 +65,15 @@ img {
       width: auto;
       height: auto;
       &.layer1 { display: none; }
-      //&.layer2 { transform: translate(-50%, 50%); }
     }
     &.ahri { visibility: hidden; }
     &.ryze { visibility: hidden; }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  img {
+    &.logo { width: 100%; }
   }
 }
 
