@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-/*Animated background*/
+/* Animated background */
 @keyframes float {
   0% { transform: translateY(50px) }
   50% { transform: translateY(70px) }
@@ -18,15 +18,9 @@
   overflow: hidden;
 }
 
-.music-player {
+.moving-bg-wrapper img {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-
-img {
-  position: absolute;
+    transition: all linear 0.1s;
 }
 
 .logo {
@@ -51,12 +45,13 @@ img {
  }
 .kayle {
    height: 90vh;
+   transform: translateX(-60%);
    filter: brightness(85%);
  }
 .kayle-wrapper {
+    display: inline-block;
     position: absolute;
     height: 90vh;
-    transform: translateX(60%);
     left: 50%;
     bottom: 50px;
     animation: float 6s ease-in-out infinite;
@@ -91,8 +86,12 @@ img {
   }
 }
 
-/*Audio player*/
+/* Audio player */
 .music-player-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,4 +120,24 @@ img {
 }
 .music-player-wrapper button:hover {
     opacity: 100%;
+}
+.music-player-wrapper img {
+    display: block;
+    position: unset;
+}
+
+/*Loading*/
+#loading-overlay {
+    position: fixed;
+    inset: 0 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(32, 32, 42);
+    z-index: 1000;
+    transition: opacity 4s ease-out;
+    pointer-events: none;
+}
+
+#loading-overlay.fade {
+    opacity: 0;
 }

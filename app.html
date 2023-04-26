@@ -7,6 +7,18 @@
 </head>
 <body>
     <div class="moving-bg-wrapper" id="animated-bg">
+        <div class="music-player-wrapper">
+            <audio loop id="audio-el">
+                <source src="assets/music/music-splash-ornn.mp3" type="audio/mp3">
+            </audio>
+            <button class="play-button" onclick="audioToggle()" type="button">
+                <img id="music-player-toggle-icon" src="assets/icons/play_arrow.svg">
+            </button>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar" style="width: 0"></div>
+            </div>
+        </div>
+
         <img class="logo" src="assets/logo.png">
         <img class="bg layer1" src="assets/1st%20layer.png" alt="">
         <img class="bg layer2" src="assets/2nd%20layer.png" alt="" id="2nd-layer">
@@ -17,6 +29,8 @@
         </div>
         <img class="layer2 ahri" src="assets/ahri.png" alt="" id="ahri">
         <img class="layer2 ryze" src="assets/ryze.png" alt="" id="ryze">
+
+        <div id="loading-overlay"></div>
     </div>
     <script src="app.js"></script>
 </body>

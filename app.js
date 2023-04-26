@@ -1,4 +1,5 @@
 
+// Parallax
 const animatedBackground = document.getElementById('animated-bg');
 const elementsToAnimate = [
     {
@@ -79,3 +80,41 @@ function parallaxAnimation(event) {
             rotateX(${el.rotate.x}) rotateY(${el.rotate.y})`;
     }
 }
+
+// Audio player
+const audioEl = document.getElementById('audio-el');
+const audioElImgRef = document.getElementById('music-player-toggle-icon');
+const audioProgressBarEl = document.getElementsByClassName('progress-bar').item(0);
+
+const playIcon = 'assets/icons/play_arrow.svg';
+const  pauseIcon = 'assets/icons/pause.svg';
+
+function audioProgress() {
+    let current = audioEl.currentTime;
+    let duration = audioEl.duration;
+    return current / duration * 100;
+}
+
+function audioToggle() {
+    if (!audioEl.paused) { audioEl.pause(); }
+    else { audioEl.play(); }
+}
+
+audioEl.addEventListener('pause', () => {
+    audioElImgRef.src = playIcon;
+})
+audioEl.addEventListener('play', () => {
+    audioElImgRef.src = pauseIcon;
+})
+audioEl.addEventListener('timeupdate', () => {
+    audioProgressBarEl.style.width = `${audioProgress()}%`;
+})
+
+// Loading
+const loadingOverlay = document.getElementById('loading-overlay');
+
+addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        loadingOverlay.classList.toggle('fade');
+    }, 200)
+})
