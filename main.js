@@ -114,7 +114,22 @@ audioEl.addEventListener('timeupdate', () => {
 const loadingOverlay = document.getElementById('loading-overlay');
 
 addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        loadingOverlay.classList.toggle('fade');
-    }, 200)
+    const images = document.querySelectorAll("img");
+    let imagesLoaded = 0;
+    for (let img of images) {
+        waitForImage(img).then(() => {
+            imagesLoaded++;
+            if (imagesLoaded === images.length) {
+                loadingOverlay.classList.toggle('fade');
+            }
+        })
+    }
 })
+
+function waitForImage(img) {
+    return new Promise(res => {
+        if (img.complete) { return res(); }
+        img.onload = () => res();
+        img.onerror = () => res();
+    })
+}
